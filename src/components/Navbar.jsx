@@ -6,7 +6,7 @@ function Navbar() {
                <div className="container">
                     {/* Logo */}
                     <Link className="navbar-brand" to="/">
-                         <img src="src/assets/logo.png" width="30" height="30" className="d-inline-block align-top rounded-circle" alt="Logo" />
+                         <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/split-bill-2651079-2198127.png" width="30" height="30" className="d-inline-block align-top rounded-circle" alt="Logo" />
                     </Link>
 
                     {/* Navbar items */}
