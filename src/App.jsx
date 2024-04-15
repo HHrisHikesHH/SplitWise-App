@@ -1,23 +1,17 @@
-import { useState } from 'react'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
-// Put any other imports below so that CSS from your
-// components takes precedence over default styles.
-//App is only HomePage
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+
 function App() {
   return (
-    <>
-      <div className='button'>
-        <button>Login</button>
-        <button>Signin</button>
+    <Router>
+      <div className='container'>
+        <Navbar />
+        <Hero />
       </div>
-      <div className='home'>
-        <h2>Welcome to </h2>
-        <h1 className='welcome'>SplitWise!</h1>
-        <p>Just Split it!! </p>
-      </div>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
