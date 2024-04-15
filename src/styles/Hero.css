@@ -1,0 +1,13 @@
+.animate-on-hover {
+  transition: 0.5s ease;
+}
+
+.animate-on-hover:hover {
+     padding: 5%;
+     transform: translateX(20px);
+}
+
+.hero{
+     background-color:rgb(248, 240, 255)
+     border-radius: 30px;
+}
