@@ -1,16 +1,18 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+const URL = "http://localhost:9999/SplitWise-App/login";
+
 function LoginPage() {
   // State to manage form fields
   const [formData, setFormData] = useState({
-    username: '',
+    email: '',
     password: ''
   });
 
   // State to manage error messages for each field
   const [errorMessages, setErrorMessages] = useState({
-    username: '',
+    email: '',
     password: ''
   });
 
@@ -20,8 +22,8 @@ function LoginPage() {
 
     // Validation
     const newErrorMessages = {};
-    if (!formData.username.trim()) {
-      newErrorMessages.username = 'Username is required';
+    if (!formData.email.trim()) {
+      newErrorMessages.email = 'email is required';
     }
     if (!formData.password.trim()) {
       newErrorMessages.password = 'Password is required';
@@ -32,7 +34,7 @@ function LoginPage() {
     if (Object.keys(newErrorMessages).length === 0) {
       try {
         // Send POST request to the specified URL
-        const response = await fetch("URL", {
+        const response = await fetch(URL, {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -43,7 +45,7 @@ function LoginPage() {
         console.log("Login successful", data);
         // Clear form fields
         setFormData({
-          username: '',
+          email: '',
           password: ''
         });
       } catch (error) {
@@ -70,16 +72,16 @@ function LoginPage() {
               <h5 className="card-title">Login</h5>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                  <label htmlFor="username" className="form-label">Username</label>
+                  <label htmlFor="email" className="form-label">Email</label>
                   <input
-                    type="text"
-                    className={`form-control ${errorMessages.username ? 'is-invalid' : ''}`}
-                    id="username"
-                    name="username"
-                    value={formData.username}
+                    type="email"
+                    id="email"
+                    name="email"
+                    className={`form-control ${errorMessages.email ? 'is-invalid' : ''}`}
+                    value={formData.email}
                     onChange={handleInputChange}
                   />
-                  {errorMessages.username && <div className="invalid-feedback">{errorMessages.username}</div>}
+                  {errorMessages.email && <div className="invalid-feedback">{errorMessages.email}</div>}
                 </div>
                 <div className="mb-3">
                   <label htmlFor="password" className="form-label">Password</label>

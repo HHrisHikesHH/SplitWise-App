@@ -1,4 +1,4 @@
-import '../styles/Hero.css'
+import './Hero.css'
 
 import { Link } from 'react-router-dom';
 function Hero() {

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+const URL = "http://localhost:9999/SplitWise-App/signin";
+
 function SigninPage() {
   // State to manage form fields
   const [formData, setFormData] = useState({
@@ -58,7 +60,7 @@ function SigninPage() {
     // If no errors, submit the form
     if (Object.keys(newErrorMessages).length === 0) {
       try {
-        const response = await fetch("URL", {
+        const response = await fetch(URL, {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -169,7 +171,7 @@ function SigninPage() {
                   />
                   {errorMessages.confirmPassword && <div className="invalid-feedback">{errorMessages.confirmPassword}</div>}
                 </div>
-                <button type="submit" className="btn btn-primary">Sign In</button>
+                <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Sign In</button>
               </form>
             </div>
           </div>
