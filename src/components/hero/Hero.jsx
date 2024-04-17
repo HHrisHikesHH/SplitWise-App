@@ -19,7 +19,7 @@ function Hero() {
                               </Link>
                          </div>
                          <div className="col-md-6">
-                              <div className="image">
+                              <div className="image" style={{ width: '100%' }}>
                                    <img src="https://www.nobroker.in/blog/wp-content/uploads/2019/01/become-friends.jpg" alt="hero-image" className="img-fluid" />
                               </div>
                          </div>

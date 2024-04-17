@@ -1,7 +1,7 @@
 
 import Navbar from "../navbar/Navbar"
 import SigninForm from "./SigninForm"
-import '../navbar/Navbar.css'
+// import '../navbar/Navbar.css'
 function SigninPage() {
      return (
           <>

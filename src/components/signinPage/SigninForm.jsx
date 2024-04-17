@@ -1,8 +1,9 @@
 import { useState } from 'react';
-
-const URL = "http://localhost:9999/SplitWise-App/signin";
+import { useNavigate } from 'react-router-dom'; // Import useHistory hook
+const URL = "http://localhost:8080/SplitWise-App/signin";
 
 function SigninForm() {
+  const navigate = useNavigate(); // Initialize useHistory hook
   // State to manage form fields
   const [formData, setFormData] = useState({
     firstName: '',
@@ -61,6 +62,7 @@ function SigninForm() {
     if (Object.keys(newErrorMessages).length === 0) {
       try {
         const response = await fetch(URL, {
+          // mode: 'no-cors',
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -78,6 +80,8 @@ function SigninForm() {
             password: '',
             confirmPassword: ''
           });
+
+          navigate('/signin-success');
         } else {
           console.error('Error:', response.statusText);
         }
