@@ -1,0 +1,28 @@
+.sign-in-success-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.sign-in-success-card {
+  width: 20rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sign-in-success-card .card-header {
+  padding: 10px;
+}
+
+.sign-in-success-card .card-body {
+  padding: 20px;
+}
+
+.sign-in-success-card .btn-eager {
+  transition: transform 0.2s ease-in-out;
+}
+
+.sign-in-success-card .btn-eager:hover {
+  transform: scale(1.05);
+}

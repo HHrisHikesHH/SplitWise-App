@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../navbar/Logo";
+import "../navbar/Navbar.css";
 
 function SignInSucess() {
      // State to hold the quotes
@@ -23,17 +24,19 @@ function SignInSucess() {
 
      return (
           <>
-
-               <Logo />
-
-               <div className="card position-absolute top-50 start-50 translate-middle p-3" style={{ width: "18rem" }}>
-                    <div className="card-img-top border-bottom bg-light p-2" alt="signin-success" >
-                         <h4>{currentQuote}</h4>
-                    </div>
-                    <div className="card-body">
-                         <h3 className="card-title">Sign In Successful!</h3>
-                         <p className="card-text">login and start adding expenses</p>
-                         <Link to="/login"><button className="btn btn-primary mx-2">Login</button></Link>
+               <div className="container-fluid vh-100 d-flex align-items-center justify-content-center ">
+                    <div className="card shadow p-4 bg-light" style={{ maxWidth: "400px" }}>
+                         <div className="card-body text-center bg-light">
+                              <Logo />
+                              <div className="mt-4 bg-light">
+                                   <h4 className="card-title">{currentQuote}</h4>
+                                   <hr />
+                                   <h3 className="card-title" style={{ color: 'green' }}>SignIn Successful ✅</h3>
+                                   <hr />
+                                   <p className="card-text">Login and start adding expenses.</p>
+                                   <Link to="/login" className="btn btn-outline-primary btn-lg btn-eager">Login</Link>
+                              </div>
+                         </div>
                     </div>
                </div>
           </>

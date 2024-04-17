@@ -1,9 +1,10 @@
 
 import MainUI from "../mainUi/MainUI";
 import TwoButtons from "../mainUi/TwoButtons";
-import DashBoardInfo from "./DashBoardInfo";
 import Logo from "../navbar/Logo";
-function DashboardPage() {
+import ExpenseInfo from '../expense/ExpenseInfo'
+
+function ExpensePage() {
      return (
           <>
                <Logo />
@@ -13,7 +14,7 @@ function DashboardPage() {
                          <div className="btnAndInfo my-4 ml-4"> {/* Adjust the margin class here */}
                               <div style={{ borderLeft: '1px solid #ccc', paddingLeft: '15px' }}> {/* Division line */}
                                    <TwoButtons />
-                                   <DashBoardInfo />
+                                   <ExpenseInfo />
                               </div>
                          </div>
                     </div>
@@ -26,4 +27,4 @@ function DashboardPage() {
 }
 
 
-export default DashboardPage;
+export default ExpensePage;

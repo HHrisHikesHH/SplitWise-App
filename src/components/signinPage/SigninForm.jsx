@@ -5,6 +5,10 @@ const URL = "http://localhost:8080/SplitWise-App/signin";
 function SigninForm() {
   const navigate = useNavigate(); // Initialize useHistory hook
   // State to manage form fields
+
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // State to toggle confirm password visibility
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -108,12 +112,14 @@ function SigninForm() {
   };
 
   return (
+    // Don't forget to import useState if not already done
+
     <div className="container mt-5">
       <div className="row justify-content-center">
-        <div className="col-md-6">
-          <div className="card">
-            <div className="card-body">
-              <h2 className="card-title">Sign In</h2>
+        <div className="col-md-4">
+          <div className="card shadow">
+            <div className="card-body bg-light">
+              <h2 className="card-title text-center mb-4">Sign In</h2>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label htmlFor="firstName" className="form-label">First Name</label>
@@ -124,6 +130,7 @@ function SigninForm() {
                     className={`form-control ${errorMessages.firstName ? 'is-invalid' : ''}`}
                     value={formData.firstName}
                     onChange={handleInputChange}
+                    style={{ borderRadius: '10px', borderColor: '#ced4da' }}
                   />
                   {errorMessages.firstName && <div className="invalid-feedback">{errorMessages.firstName}</div>}
                 </div>
@@ -136,6 +143,7 @@ function SigninForm() {
                     className={`form-control ${errorMessages.lastName ? 'is-invalid' : ''}`}
                     value={formData.lastName}
                     onChange={handleInputChange}
+                    style={{ borderRadius: '10px', borderColor: '#ced4da' }}
                   />
                   {errorMessages.lastName && <div className="invalid-feedback">{errorMessages.lastName}</div>}
                 </div>
@@ -148,40 +156,65 @@ function SigninForm() {
                     className={`form-control ${errorMessages.email ? 'is-invalid' : ''}`}
                     value={formData.email}
                     onChange={handleInputChange}
+                    style={{ borderRadius: '10px', borderColor: '#ced4da' }}
                   />
                   {errorMessages.email && <div className="invalid-feedback">{errorMessages.email}</div>}
                 </div>
                 <div className="mb-3">
                   <label htmlFor="password" className="form-label">Password</label>
-                  <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    className={`form-control ${errorMessages.password ? 'is-invalid' : ''}`}
-                    value={formData.password}
-                    onChange={handleInputChange}
-                  />
+                  <div className="input-group">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      className={`form-control ${errorMessages.password ? 'is-invalid' : ''}`}
+                      id="password"
+                      name="password"
+                      value={formData.password}
+                      onChange={handleInputChange}
+                      style={{ borderRadius: '10px', borderColor: '#ced4da' }}
+                    />
+                    <button
+                      type="button"
+                      className="btn btn-outline-secondary"
+                      onClick={() => setShowPassword(!showPassword)}
+                      style={{ borderRadius: '0 10px 10px 0' }}
+                    >
+                      {showPassword ? "🐵" : "🙈"}
+                    </button>
+                  </div>
                   {errorMessages.password && <div className="invalid-feedback">{errorMessages.password}</div>}
                 </div>
                 <div className="mb-3">
                   <label htmlFor="confirmPassword" className="form-label">Confirm Password</label>
-                  <input
-                    type="password"
-                    id="confirmPassword"
-                    name="confirmPassword"
-                    className={`form-control ${errorMessages.confirmPassword ? 'is-invalid' : ''}`}
-                    value={formData.confirmPassword}
-                    onChange={handleInputChange}
-                  />
+                  <div className="input-group">
+                    <input
+                      type={showConfirmPassword ? "text" : "password"}
+                      className={`form-control ${errorMessages.confirmPassword ? 'is-invalid' : ''}`}
+                      id="confirmPassword"
+                      name="confirmPassword"
+                      value={formData.confirmPassword}
+                      onChange={handleInputChange}
+                      style={{ borderRadius: '10px', borderColor: '#ced4da' }}
+                    />
+                    <button
+                      type="button"
+                      className="btn btn-outline-secondary"
+                      onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                      style={{ borderRadius: '0 10px 10px 0' }}
+                    >
+                      {showConfirmPassword ? "🐵" : "🙈"}
+                    </button>
+                  </div>
                   {errorMessages.confirmPassword && <div className="invalid-feedback">{errorMessages.confirmPassword}</div>}
                 </div>
-                <button type="submit" className="btn btn-primary" onClick={handleSubmit}>Sign In</button>
+                <button type="submit" className="btn btn-primary btn-block" style={{ borderRadius: '10px' }}>Sign In</button>
               </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+
   );
 }
 

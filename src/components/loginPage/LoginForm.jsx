@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+// import { useState } from 'react';
 
 const URL = "http://localhost:8080/SplitWise-App/login";
 
@@ -60,12 +61,14 @@ function LoginForm() {
   };
 
   return (
+    // Don't forget to import useState if not already done
+
     <div className="container mt-5">
       <div className="row justify-content-center">
-        <div className="col-md-6">
-          <div className="card">
-            <div className="card-body">
-              <h2 className="card-title">Login</h2>
+        <div className="col-md-4">
+          <div className="card shadow" style={{ borderRadius: '15px' }}>
+            <div className="card-body bg-light">
+              <h2 className="card-title text-center mb-4">Login</h2>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label htmlFor="email" className="form-label">Email</label>
@@ -76,6 +79,7 @@ function LoginForm() {
                     className={`form-control ${errorMessages.email ? 'is-invalid' : ''}`}
                     value={formData.email}
                     onChange={handleInputChange}
+                    style={{ borderRadius: '10px', borderColor: '#ced4da' }}
                   />
                   {errorMessages.email && <div className="invalid-feedback">{errorMessages.email}</div>}
                 </div>
@@ -83,31 +87,35 @@ function LoginForm() {
                   <label htmlFor="password" className="form-label">Password</label>
                   <div className="input-group">
                     <input
-                      type={showPassword ? "text" : "password"} // Toggle input type based on showPassword state
+                      type={showPassword ? "text" : "password"}
                       className={`form-control ${errorMessages.password ? 'is-invalid' : ''}`}
                       id="password"
                       name="password"
                       value={formData.password}
                       onChange={handleInputChange}
+                      style={{ borderRadius: '10px', borderColor: '#ced4da' }}
                     />
                     <button
                       type="button"
                       className="btn btn-outline-secondary"
-                      onClick={() => setShowPassword(!showPassword)} // Toggle showPassword state
+                      onClick={() => setShowPassword(!showPassword)}
+                      style={{ borderRadius: '0 10px 10px 0' }}
                     >
                       {showPassword ? "🐵" : "🙈"}
                     </button>
                   </div>
                   {errorMessages.password && <div className="invalid-feedback">{errorMessages.password}</div>}
                 </div>
-                <button type="submit" className="btn btn-primary">Login</button>
-                <p className="mt-3">Dont have an account? <Link to="/signin">Signin</Link></p>
+                <button type="submit" className="btn btn-primary btn-block" style={{ borderRadius: '10px' }}>Login</button>
               </form>
+              <p className="text-center mt-3">Don't have an account? <Link to="/signin">Sign in</Link></p>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+
   );
 }
 

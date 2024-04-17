@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom'
 function Logo() {
      return (
-          <nav className="navbar navbar-expand-lg navbar-light mb-3 " style={{ paddingTop: '20px', paddingBottom: '20px', height: '50px', marginTop: '40px', width: '90%' }}>
+          <nav className="navbar navbar-expand-lg navbar-light mb-3 mx-5" style={{ paddingTop: '20px', paddingBottom: '20px', height: '50px', marginTop: '40px', width: '90%' }}>
                <div className="container">
 
                     <Link className="navbar-brand" to="/">
