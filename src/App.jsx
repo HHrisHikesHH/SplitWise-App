@@ -11,7 +11,7 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter basename='SplitWise-App'>
+    <BrowserRouter basename='/SplitWise-App-FrontEnd/'>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginPage />} />
