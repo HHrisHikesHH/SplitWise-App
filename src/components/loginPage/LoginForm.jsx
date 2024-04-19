@@ -8,14 +8,17 @@ const URL = "http://localhost:8080/SplitWise-App/login";
 
 function LoginForm() {
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
+
   const [errorMessages, setErrorMessages] = useState({
     email: '',
     password: ''
   });
+
   const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
 
   const handleSubmit = async (event) => {
@@ -23,7 +26,7 @@ function LoginForm() {
 
     const newErrorMessages = {};
     if (!formData.email.trim()) {
-      newErrorMessages.email = 'email is required';
+      newErrorMessages.email = 'Email is required';
     }
     if (!formData.password.trim()) {
       newErrorMessages.password = 'Password is required';
@@ -48,12 +51,13 @@ function LoginForm() {
       } catch (error) {
         console.error("Error:", error);
         setErrorMessages({
-          email: 'Username may be incorrect',
-          password: 'Password may be incorrect'
+          email: 'Username or password may be incorrect',
+          password: 'Username or password may be incorrect'
         });
       }
     }
   };
+
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -108,7 +112,7 @@ function LoginForm() {
                 </div>
                 <button type="submit" className="btn btn-primary btn-block" style={{ borderRadius: '10px' }}>Login</button>
               </form>
-              <p className="text-center mt-3">Don't have an account? <Link to="/signin">Sign in</Link></p>
+              <p className="text-center mt-3">Dont have an account? <Link to="/signin">Sign in</Link></p>
             </div>
           </div>
         </div>
